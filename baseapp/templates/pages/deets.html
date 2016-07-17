@@ -1,0 +1,103 @@
+{% extends 'layouts/index.html' %}
+{% set active_page = "deets" %}
+
+{% block pagecontent %}
+
+<div class="row">
+  <h1 class='text-center text-underline'>
+    <span class='fancyfont'>Wedding Details</span>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+    <div class="row text-center">
+      <h1><span class='fancyfont'>Ceremony</span></h1>
+    </div>
+    <div class="row lead">
+      <p>The backyard at Casa de McAnally/Pasloske.</p>
+      <p><a href="//www.google.com/maps/place/8700+Crest+View+Rd,+Austin,+TX+78737/@30.2248517,-97.9108061,99m/data=!3m1!1e3!4m5!3m4!1s0x865b491eb6c6e53b:0x47960e9a6b891380!8m2!3d30.2245805!4d-97.9107002" target="_blank">
+        8700 Crest View, Austin</a></p>
+      <p>Saturday, April 8<sup>th</sup>, 2017 at 4:00 PM</p>
+      <p>Reception to follow</p>
+    </div>
+  </div>
+</div>
+{% include "snippets/hr.html" %}
+<div class="row">
+  <h1 class="text-center">
+    <span class='fancyfont'>Schedule</span>
+  </h1>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <p class='text-center'>
+      Saturday April 8<sup>th</sup>, 2017. Sunset is 19:55 PM.
+    </p>
+    <dl class='dl-horizontal'>
+      <dt>3:30 - 4:30</dt>
+      <dd><b>Arrive</b><br />
+          Arrive any time before 4:30 and schmooze.
+          Margaritas and other drinks provided.
+          Arrival right at 4:30 is just fine.
+          The party will be taking pictures before the ceremony,
+          so this is your chance for photobombs.</dd>
+
+      <dt>4:20 - 4:30</dt>
+      <dd><b>Steating</b></dd>
+
+      <dt>4:30 - 5:00</dt>
+      <dd><b>Ceremony</b></dd>
+
+      <dt>5:00 - 6:00</dt>
+      <dd><b>Cocktail Hour</b><br />
+          Drinks and appatizers will be provided.
+          Vegetarian options will be in abundance.
+          Drinks will include wine, beer, sodas, juices, and water.</dd>
+
+      <dt>6:00 - 7:00</dt>
+      <dd><b>Dinner</b><br />
+          Dinner will be buffet style dishes from Lacey and Mac's favorite cuisines.
+          Again vegetarian options will be in abundance.
+          In fact meat options might be sorely lacking,
+          so BYO-meat might be prudent if you so need.
+          Drinks will remain plentiful</dd>
+
+      <dt>7:00 - 7:30</dt>
+      <dd><b>Talking</b><br />
+          Speaches and thanks while people finish gnoshing.
+          Feel free to bring your most embarassing story about the bride and groom.</dd>
+
+      <dt>7:30 - <abbr title="As Late As Possible">ALAP</abbr></dt>
+      <dd><b>Dancing</b><br />
+          You can dance if you want to.
+          Scratch that, dancing is mandatory.
+        </dd>
+
+      <dt>11:30</dt>
+      <dd><b>Pizza?</b><br />
+          If food's gone, and dancing induced hunger strikes,
+          we'll have a pizza order on standby.
+        </dd>
+    </dl>
+  </div>
+</div>
+
+{% include "snippets/hr.html" %}
+
+<div class="row">
+<h1 class="text-center"><span class='fancyfont'>Attire</span></h1>
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+    <div class="row lead">
+      <p>Casual attire is encouraged.</p>
+      <p>Formal attire is permitted.</p>
+      <p>Tuxedos will be derided unless dance moves are sufficiently compensatory.</p>
+      <p><a href="//www.wunderground.com/history/airport/KATT/2016/4/8/DailyHistory.html" target="_blank">
+        Weather</a> will hopefully be sunny in the 70s (that's 25°C for you Canadians).
+        We will have a tent for the reception and ceremony just in case.</p>
+    </div>
+  </div>
+</div>
+
+
+{% endblock pagecontent %}

@@ -1,0 +1,26 @@
+{% extends 'layouts/index.html' %}
+
+{% block pagecontent %}
+
+<div class="row text-center">
+  <h1 class='home-title home-shadow'>
+    <span class='laceyfont'>Lacey</span>
+    +
+    <span class='macfont'>Mac</span>
+  </h1>
+  <h1 class='home-shadow'>April 8<sup>th</sup>, 2017</h1>
+  <h1 class='home-shadow'>Austin, Texas</h1>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-xs-offset-4">
+    <hr>
+  </div>
+</div>
+<div class="row">
+  <div class='col-xs-12'>
+    <img class="inline-img" alt="Cute"
+    src="{{ url_for('static', filename='img/star-wars_flowers.jpg') }}">
+  </div>
+</div>
+
+{% endblock pagecontent %}

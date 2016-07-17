@@ -1,0 +1,87 @@
+{% extends 'layouts/index.html' %}
+{% set active_page = "about" %}
+
+{% block pagecontent %}
+
+<div class="row">
+  <div class="col-xs-12">
+    <h1 class='text-center text-underline'><span class='fancyfont'>About Us</span></h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <div class="row text-center">
+      <h1><span class='laceyfont'>Lacey</span></h1>
+    </div>
+    <div class="row">
+      <p class='padded-text text-justify'>
+        <img class="headshot" alt="Lacey"
+        src="{{ url_for('static', filename='img/lacey_head.jpg') }}">
+        Lacey was born in Corpus Christi, Texas - the greatest nation on earth.
+        She grew up swimming and eating Tex-Mex, the best food known to man,
+        and can still be regularly found snacking on tortillas and beans.
+        Although Hooked on Phonics did not work for her, when she found her big
+        brother's Terry Brooks series in the closet she decided it was time to
+        learn to read. The resulting obsession with epic adventure books lead
+        to an equally driving fascination with school, travel, and camping.
+        Geology, being the mixture of all three, was her inevitable conclusion.
+        <em>
+        She has an undergrad and Masters degree in Geology, and is currently
+        pursuing a Ph.D. in Geology, focusing on soils.
+        </em>
+      </p>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <div class="row text-center">
+      <h1><span class="macfont">Mac</span></h1>
+    </div>
+    <div class="row">
+      <p class='padded-text text-justify'>
+        <img class="headshot" alt="Mac"
+        src="{{ url_for('static', filename='img/mac_head.jpg') }}">
+        Mac was born in St. Albert, Canada. That makes him a Canadian.
+        He has lived in the states since he was four. That makes him a fake Canadian.
+        When he was in 5th grade, he discovered the Redwall series, and for the next
+        seven years structured his wardrobe around shorts with pockets big enough to fit
+        a paperback. He chose to go to Rose-Hulman because they sent him a brochure
+        about Legos. He followed his EE degree with a brief stint in industry, then
+        quickly scurried back to Academics to get a Ph.D. in Accounting. He hopes
+        to one day be a research processor, or failing that, anything that lets
+        him play with large datasets.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% include "snippets/hr.html" %}
+
+<div class="row">
+  <div class="col-xs-12">
+    <h1 class='text-center text-underline'>
+      <span class='fancyfont'>About Macey</span>
+    </h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <div class="row">
+      <p class='padded-text text-justify'>
+        Mac met Lacey in a bar. He was hard at work, and she was just come from the gym.
+        Their florid love affair began on a rock on Rice campus in August of 2013.
+        In keeping with tradition, Lacey was the one to propose.
+        She did so on Christmas Day in Spain, 2015.
+        They both plan on defending and graduating in May of 2017.
+        They both felt that planning a wedding the week before their dissertations
+        are due is somehow a good idea.
+      </p>
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <img class="inline-img" alt="Engaged!"
+        src="{{ url_for('static', filename='img/player_two.jpg') }}">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock pagecontent %}

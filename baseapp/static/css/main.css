@@ -1,0 +1,148 @@
+/*****************************************************************************
+ * Main elements
+ ****************************************************************************/
+html {
+  overflow-y: scroll;
+}
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+  font-family: Times, serif;
+  font-size: 1.1rem;
+  color: #FFF;
+
+  background-image:url('../img/bg_large.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+}
+a {
+  cursor: pointer;
+}
+a.active{
+  background-color: #555;
+  color: #FFF !important;
+  font-weight: bold;
+}
+
+::selection {
+  background: #555;
+  color: #FFF;
+}
+::-moz-selection {
+  background: #555;
+  color: #FFF;
+}
+::-webkit-selection {
+  background: #555;
+  color: #FFF;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+
+.navbar {
+  background: #000;  /* fallback for older browsers */
+  background:rgba(0,0,0,0.75);   /* for latest browsers */
+  color: #FFF;
+}
+
+.navbar-brand,.navbar-default,.navbar-header {
+  color: #FFF !important;
+}
+
+.navbar-brand {
+  font-size: 1.25em;
+}
+
+
+/*****************************************************************************
+ * Body
+ ****************************************************************************/
+
+#wrap > .container {
+  padding: 60px 15px 0;
+}
+
+.bodyblock {
+  background: #000;  /* fallback for older browsers */
+  background:rgba(0,0,0,0.75);   /* for latest browsers */
+
+  padding: 2em;
+  margin-top: 2em;
+}
+
+.home-shadow {
+  text-shadow: 4px 4px 4px #aaa;
+}
+
+.home-title {
+  font-size: 5em;
+}
+
+.text-underline {
+  text-decoration: underline;
+  }
+
+.padded-text {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+img.headshot {
+  width: 100px;
+  float: left;
+  margin-right: .75em;
+  border: 2px solid #000;
+}
+
+img.inline-img {
+  width: 100%;
+}
+
+/*h1 {font-size: 1.8em;}
+h2 {font-size: 1.6em;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.4em;}
+h5 {font-size: 1.25em;}
+h6 {font-size: 1.1em;}*/
+
+
+/*
+8888888888                888
+888                       888
+888                       888
+8888888  .d88b.  88888b.  888888 .d8888b
+888     d88""88b 888 "88b 888    88K
+888     888  888 888  888 888    "Y8888b.
+888     Y88..88P 888  888 Y88b.       X88
+888      "Y88P"  888  888  "Y888  88888P'
+
+font-family: 'IM Fell Great Primer', serif;
+font-family: 'Indie Flower', cursive;
+font-family: 'Pacifico', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Petit Formal Script', cursive;
+font-family: 'UnifrakturMaguntia', cursive;
+font-family: 'Tangerine', cursive;
+*/
+
+.macfont {
+  font-family: "Press Start 2P", Times;
+  font-size: .75em;
+}
+
+.laceyfont {
+  font-family: "Tangerine", Times;
+  font-size: 1.2em;
+}
+
+.fancyfont {
+  font-family: "IM Fell Great Primer", Times;
+}

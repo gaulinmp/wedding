@@ -1,0 +1,10 @@
+# Folders
+*/__pycache__
+/baseapp/static/bower
+
+# Files
+*.py[co]
+.DS_Store
+env
+venv
+*.db

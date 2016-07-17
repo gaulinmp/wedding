@@ -1,0 +1,29 @@
+{% extends 'layouts/index.html' %}
+{% set active_page = "accomodations" %}
+
+{% block pagecontent %}
+
+<div class="row">
+  <h1 class='text-center text-underline'>
+    <span class='fancyfont'>Accomodations and Austin Info</span>
+  </h1>
+</div>
+
+<div class="row">
+  <div class='col-xs-12'>
+    <p>
+      Suggested accomodations to follow.
+    </p>
+  </div>
+</div>
+
+{% include "snippets/hr.html" %}
+
+<div class="row">
+  <div class='text-center'>
+  <iframe src="https://www.google.com/maps/d/embed?mid=1RPqyO_ZJq6KgqtScd8iBQLlRZ3o"
+  width="100%" height="450"></iframe>
+  </div>
+</div>
+
+{% endblock pagecontent %}

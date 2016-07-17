@@ -1,0 +1,180 @@
+<!doctype html>
+{% set active_page = active_page|default('index') -%}
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<title>{% block title %}{{ config.SITE_NAME | default("Flask") }}{% endblock %}</title>
+
+<!-- meta -->
+<meta name="description" content="{{ config.SITE_DESCRIPTION | default("") }}">
+<meta name="author" content="{{ config.SITE_AUTHOR | default("") }}">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!-- For iPhone 4 with high-resolution Retina display: -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+      href="{{ url_for('static', filename='img/icon/apple-touch-icon-114x114-precomposed.png') }}">
+<!-- For first-generation iPad: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+      href="{{ url_for('static', filename='img/icon/apple-touch-icon-72x72-precomposed.png') }}">
+<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="apple-touch-icon-precomposed"
+      href="{{ url_for('static', filename='img/icon/apple-touch-icon-precomposed.png') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='img/icon/favicon.ico') }}?v=2">
+<!-- /meta -->
+
+<!-- styles -->
+{% if config.USE_CDN %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Tangerine">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Inconsolata">
+<link href="//fonts.googleapis.com/css?family=Tangerine|Inconsolata|Dancing+Script|IM+Fell+Great+Primer|Indie+Flower|Pacifico|Petit+Formal+Script|Press+Start+2P|UnifrakturMaguntia" rel="stylesheet">
+{% else %}
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='bower/font-awesome/css/font-awesome.min.css') }}" />
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='bower/bootstrap/dist/css/bootstrap.min.css') }}">
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='bower/bootstrap/dist/css/bootstrap-theme.min.css') }}" />
+<style>
+/*
+IM Fell Great Primer
+Indie Flower
+Pacifico
+Dancing Script
+Press Start 2P
+Petit Formal Script
+UnifrakturMaguntia
+Inconsolata
+Tangerine
+*/
+@font-face {
+    font-family: "Press Start 2P";
+    font-style: normal;
+    font-weight: normal;
+    src: url("{{ url_for('static',filename='fonts/Press_Start_2P/PressStart2P-Regular.ttf') }}")
+         format("truetype");
+}
+@font-face {
+    font-family: "Tangerine";
+    font-style: normal;
+    font-weight: normal;
+    src: url("{{ url_for('static',filename='fonts/Tangerine/Tangerine_Bold.ttf') }}") format("truetype");
+}
+@font-face {
+    font-family: "IM Fell Great Primer";
+    font-style: normal;
+    font-weight: normal;
+    src: url("{{ url_for('static',filename='fonts/IM_Fell_Great_Primer/IM_Fell_Great_Primer-Regular.ttf') }}") format("truetype");
+}
+@font-face {
+    font-family: "UnifrakturMaguntia";
+    font-style: normal;
+    font-weight: normal;
+    src: url("{{ url_for('static',filename='fonts/UnifrakturMaguntia/UnifrakturMaguntia-Book.ttf') }}") format("truetype");
+}
+</style>
+{% endif %}
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/main.responsive.css') }}" />
+<!--[if lt IE 9]><script src="{{ url_for('static', filename='bower/respond/dest/respond.min.js') }}"></script><![endif]-->
+<!-- /styles -->
+
+<!-- favicons -->
+{#% include "snippets/favicons.html" %#}
+<!-- /favicons -->
+
+<!-- scripts -->
+<script src="{{ url_for('static', filename='js/modernizr-custom-2.8.3.min.js') }}"></script>
+<!-- /scripts -->
+{% block head %}{% endblock head %}
+</head>
+<body>
+
+  <!-- Wrap all page content here -->
+  <div id="wrap">
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url_for('baseapp.home') }}">
+            <span class='laceyfont'>Lacey</span> + <span class='macfont'>Mac</span></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            {% if header_links %}
+            {% for name,route in header_links %}
+              <li><a href="{{ url_for(route) }}"
+                {% if route == 'baseapp.'+active_page %}class="active"{% endif %}
+                >{{ name }}</a></li>
+            {% endfor %}
+            {% endif %}
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+          {% if current_user %}
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">User <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+              {% if not current_user.is_authenticated() %}
+                <li><a href="{{ url_for('user.login') }}">Login</a></li>
+                <li><a href="{{ url_for('user.register') }}">Register</a></li>
+              {% else %}
+                <li><a href="{{ url_for('user.logout') }}">Logout</a></li>
+              {% endif %}
+              </ul>
+            </li>
+          {% endif %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <!-- Begin page content -->
+    <main id="content" role="main" class="container">
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-block alert-warning fade in">
+              <a class="close" data-dismiss="alert">&times;</a>
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock content %}
+
+    </main>
+
+  </div>
+
+  {% if config.USE_CDN %}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='bower/jquery/dist/jquery.min.js') }}"><\/script>')</script>
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  {% else %}
+  <script src="{{ url_for('static', filename='bower/jquery/dist/jquery.min.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='bower/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+  <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% endif %}
+  {% if config.GOOGLE_ANALYTICS %}
+  <!-- Google Analytics -->
+  <script>
+  window._gaq = [['_setAccount','{{ config.GOOGLE_ANALYTICS | default("") }}'],['_trackPageview'],['_trackPageLoadTime']];
+  Modernizr.load({
+    load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+  });
+  </script>
+  {% endif %}
+
+  {% block endofpage %}{% endblock endofpage %}
+</body>
+</html>
