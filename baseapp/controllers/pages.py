@@ -21,9 +21,9 @@ def about():
 def deets():
     return render_template('pages/deets.html')
 
-@blueprint.route('/accomodations')
-def accomodations():
-    return render_template('pages/accomodations.html')
+@blueprint.route('/accommodations')
+def accommodations():
+    return render_template('pages/accommodations.html')
 
 @blueprint.route('/gifts')
 def gifts():
@@ -43,7 +43,7 @@ def extra_init(app):
     app.jinja_env.globals['header_links'].extend([
     ("About Us", 'baseapp.about'),
     ("Wedding", 'baseapp.deets'),
-    ("Accomodations", 'baseapp.accomodations'),
+    ("Accomodations", 'baseapp.accommodations'),
     ("Registry", 'baseapp.gifts'),
     ])
 # Tack it on to blueprint for easy access in app's __init__.py
