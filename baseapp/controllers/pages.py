@@ -43,7 +43,7 @@ def extra_init(app):
     app.jinja_env.globals['header_links'].extend([
     ("About Us", 'baseapp.about'),
     ("Wedding", 'baseapp.deets'),
-    ("Accomodations", 'baseapp.accommodations'),
+    ("Accommodations", 'baseapp.accommodations'),
     ("Registry", 'baseapp.gifts'),
     ])
 # Tack it on to blueprint for easy access in app's __init__.py
