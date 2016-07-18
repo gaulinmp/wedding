@@ -1,5 +1,12 @@
 /*****************************************************************************
- * Main elements
+ .d8888b.                                             888
+d88P  Y88b                                            888
+888    888                                            888
+888         .d88b.  88888b.   .d88b.  888d888 8888b.  888
+888  88888 d8P  Y8b 888 "88b d8P  Y8b 888P"      "88b 888
+888    888 88888888 888  888 88888888 888    .d888888 888
+Y88b  d88P Y8b.     888  888 Y8b.     888    888  888 888
+ "Y8888P88  "Y8888  888  888  "Y8888  888    "Y888888 888
  ****************************************************************************/
 html {
   overflow-y: scroll;
@@ -16,6 +23,7 @@ body {
   background-repeat:no-repeat;
   background-size:cover;
   background-attachment: fixed;
+  background-position: center center;
 }
 a {
   cursor: pointer;
@@ -46,6 +54,24 @@ a.active{
   height: 100%;
 }
 
+/*****************************************************************************
+888888b.                 888
+888  "88b                888
+888  .88P                888
+8888888K.   .d88b.   .d88888 888  888
+888  "Y88b d88""88b d88" 888 888  888
+888    888 888  888 888  888 888  888
+888   d88P Y88..88P Y88b 888 Y88b 888
+8888888P"   "Y88P"   "Y88888  "Y88888
+                                  888
+                             Y8b d88P
+                              "Y88P"
+ ****************************************************************************/
+
+#wrap > .container {
+  padding: 60px 0px;
+}
+
 .navbar {
   background: #000;  /* fallback for older browsers */
   background:rgba(0,0,0,0.75);   /* for latest browsers */
@@ -61,18 +87,9 @@ a.active{
 }
 
 
-/*****************************************************************************
- * Body
- ****************************************************************************/
-
-#wrap > .container {
-  padding: 60px 15px 0;
-}
-
 .bodyblock {
   background: #000;  /* fallback for older browsers */
   background:rgba(0,0,0,0.75);   /* for latest browsers */
-
   padding: 2em;
   margin-top: 2em;
 }
@@ -105,15 +122,8 @@ img.inline-img {
   width: 100%;
 }
 
-/*h1 {font-size: 1.8em;}
-h2 {font-size: 1.6em;}
-h3 {font-size: 1.5em;}
-h4 {font-size: 1.4em;}
-h5 {font-size: 1.25em;}
-h6 {font-size: 1.1em;}*/
 
-
-/*
+/*****************************************************************************
 8888888888                888
 888                       888
 888                       888
@@ -131,7 +141,7 @@ font-family: 'Press Start 2P', cursive;
 font-family: 'Petit Formal Script', cursive;
 font-family: 'UnifrakturMaguntia', cursive;
 font-family: 'Tangerine', cursive;
-*/
+****************************************************************************/
 
 .macfont {
   font-family: "Press Start 2P", Times;
