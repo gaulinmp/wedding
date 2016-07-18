@@ -8,8 +8,8 @@ class Config(object):
     SITE_NAME = "Lacey + Mac"
     SITE_AUTHOR = "Mac Gaulin"
     SITE_DESCRIPTION = "Wedding site for Lacey and Mac."
-    GOOGLE_ANALYTICS = ''
     SECRET_KEY = os_env.get('SECRET_KEY', 'wegongetmarried')
+    # GOOGLE_ANALYTICS = 'UA-80889496-1'
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # config directory
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
     BCRYPT_LOG_ROUNDS = 13
@@ -22,6 +22,7 @@ class ProdConfig(Config):
     ENV = 'prod'
     DEBUG = False
     DB_NAME = 'database.db'
+    GOOGLE_ANALYTICS = 'UA-80889496-1'
     DBFILE_PATH = os.path.join(Config.APP_DIR, DB_NAME)
     SQLALCHEMY_DATABASE_URI = ('sqlite:///' + DBFILE_PATH)
 
