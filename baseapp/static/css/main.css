@@ -34,6 +34,9 @@ a.active{
   font-weight: bold;
 }
 
+p {
+  text-align: justify;
+}
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
