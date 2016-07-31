@@ -34,19 +34,6 @@ a.active{
   font-weight: bold;
 }
 
-::selection {
-  background: #555;
-  color: #FFF;
-}
-::-moz-selection {
-  background: #555;
-  color: #FFF;
-}
-::-webkit-selection {
-  background: #555;
-  color: #FFF;
-}
-
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
