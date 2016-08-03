@@ -10,7 +10,7 @@ import datetime as dt
 
 from flask import current_app
 
-from baseapp.extensions import bcrypt
+# from baseapp.extensions import bcrypt
 from baseapp.database import (
     Column,
     db,
