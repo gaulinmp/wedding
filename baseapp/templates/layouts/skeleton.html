@@ -111,7 +111,7 @@ Tangerine
             {% if header_links %}
             {% for name,route in header_links %}
               <li><a href="{{ url_for(route) }}"
-                {% if route == 'baseapp.'+active_page %}class="active"{% endif %}>
+                {% if route == active_page %}class="active"{% endif %}>
                 {{ name }}</a></li>
             {% endfor %}
             {% endif %}
