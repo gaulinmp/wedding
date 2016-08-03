@@ -3,7 +3,7 @@ from datetime import timedelta
 
 from flask import request, url_for, redirect, session, current_app
 from flask_wtf import Form
-from wtforms import TextField, PasswordField, HiddenField
+from wtforms import TextField, HiddenField
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 from wtforms.csrf.session import SessionCSRF
 
@@ -26,20 +26,10 @@ class RedirectForm(Form):
 
 
 class RegisterForm(RedirectForm):
-    username = TextField(
-        'Username', validators=[DataRequired(), Length(min=1, max=31)]
-    )
-    email = TextField(
-        'Email', validators=[DataRequired(), Length(min=1, max=64)]
-    )
-    password = PasswordField(
-        'Password', validators=[DataRequired(), Length(min=1, max=64)]
-    )
-    confirm = PasswordField(
-        'Repeat Password',
-        [DataRequired(),
-        EqualTo('password', message='Passwords must match')]
-    )
+    first_name = TextField('First Name', [DataRequired()])
+    last_name = TextField('Last Name', [DataRequired()])
+    email = TextField('Email', [DataRequired()])
+    question = TextField('Enter the bride\'s name', [DataRequired()])
 
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)
@@ -49,20 +39,23 @@ class RegisterForm(RedirectForm):
         initial_validation = super(RegisterForm, self).validate()
         if not initial_validation:
             return False
-        user = User.search(username=self.username.data)
-        if user:
-            self.username.errors.append("Username already registered")
-            return False
         user = User.search(email=self.email.data)
         if user:
-            self.email.errors.append("Email already registered")
+            self.email.errors.append("Email already registered. Please log in.")
+            return False
+        user = User.search(first_name=self.first_name.data, last_name=self.last_name.data)
+        if user:
+            self.first_name.errors.append("Name already registered. Please log in.")
+            return False
+        if 'lacey' not in '{}'.format(self.question.data).lower():
+            self.question.errors.append("That's not the bride's name. Her name is Lacey. Try that instead.")
             return False
         return True
 
 
 class LoginForm(RedirectForm):
-    username = TextField('Username', [DataRequired()])
-    password = PasswordField('Password', [DataRequired()])
+    email = TextField('Email', [DataRequired()])
+    question = TextField('Enter the bride\'s first name', [DataRequired()])
 
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)
@@ -73,23 +66,18 @@ class LoginForm(RedirectForm):
         if not initial_validation:
             return False
 
-        self.user = User.search(username=self.username.data)
+        self.user = User.search(email=self.email.data)
         if not self.user:
-            self.username.errors.append('Unknown username')
+            self.email.errors.append('Unknown email. Please Register.')
             return False
 
-        if not self.user.check_password(self.password.data):
-            self.password.errors.append('Invalid password')
-            return False
-
-        if not self.user.active:
-            self.username.errors.append('User not activated')
+        if 'lacey' not in '{}'.format(self.question.data).lower():
+            self.question.errors.append("That's not the bride's name. Her name is Lacey. Try that instead.")
             return False
 
         return True
 
 
 class ForgotForm(RedirectForm):
-    email = TextField(
-        'Email', validators=[DataRequired(), Length(min=1, max=64)]
-    )
+    first_name = TextField('First Name', [DataRequired()])
+    last_name = TextField('Last Name', [DataRequired()])

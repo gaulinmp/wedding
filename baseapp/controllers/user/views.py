@@ -53,11 +53,10 @@ def logout():
 def register():
     form = RegisterForm(request.form)
     if form.validate_on_submit():
-        new_user = User.create(username=form.username.data,
-                               email=form.email.data,
-                               password=form.password.data,
-                               active=False) # Gotta be confirmed.
-        flash('Thanks for registering. You may be confirmed later.', 'success')
+        new_user = User.create(email=form.email.data,
+                                first_name=form.first_name.data,
+                                last_name=form.last_name.data)
+        flash('Thanks for registering!', 'success')
         return redirect(url_for('baseapp.home'))
     else:
         flash_errors(form)
