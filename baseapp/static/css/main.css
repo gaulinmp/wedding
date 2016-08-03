@@ -28,11 +28,6 @@ body {
 a {
   cursor: pointer;
 }
-a.active{
-  background-color: #555;
-  color: #FFF !important;
-  font-weight: bold;
-}
 
 p {
   text-align: justify;
@@ -42,6 +37,48 @@ p {
   min-height: 100%;
   height: auto !important;
   height: 100%;
+}
+
+/*****************************************************************************
+  888b    888                   888
+  8888b   888                   888
+  88888b  888                   888
+  888Y88b 888  8888b.  888  888 88888b.   8888b.  888d888
+  888 Y88b888     "88b 888  888 888 "88b     "88b 888P"
+  888  Y88888 .d888888 Y88  88P 888  888 .d888888 888
+  888   Y8888 888  888  Y8bd8P  888 d88P 888  888 888
+  888    Y888 "Y888888   Y88P   88888P"  "Y888888 888
+ ****************************************************************************/
+
+.navbar {
+  background: #000;  /* fallback for older browsers */
+  background:rgba(0,0,0,0.75);   /* for latest browsers */
+  color: #FFF;
+}
+
+.navbar-nav>li>a, .navbar-default .navbar-nav>li>a {
+  text-shadow: none;
+  color: #ccc;
+}
+.navbar-nav>li>a.active, .navbar-default .navbar-nav>li>a.active {
+  background-color: #555;
+  color: #FFF !important;
+  font-weight: bold;
+}
+
+.navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:hover {
+  background-color: #222;
+  color: #FFF !important;
+  font-weight: bold;
+}
+
+
+.navbar-brand,.navbar-default,.navbar-header {
+  color: #FFF !important;
+}
+
+.navbar-brand {
+  font-size: 1.25em;
 }
 
 /*****************************************************************************
@@ -62,26 +99,15 @@ p {
   padding: 60px 0px;
 }
 
-.navbar {
-  background: #000;  /* fallback for older browsers */
-  background:rgba(0,0,0,0.75);   /* for latest browsers */
-  color: #FFF;
-}
-
-.navbar-brand,.navbar-default,.navbar-header {
-  color: #FFF !important;
-}
-
-.navbar-brand {
-  font-size: 1.25em;
-}
-
-
 .bodyblock {
   background: #000;  /* fallback for older browsers */
   background:rgba(0,0,0,0.75);   /* for latest browsers */
   padding: 2em;
   margin-top: 2em;
+}
+
+.bodyblock a {
+  color: #57b1ff;
 }
 
 .home-shadow {
