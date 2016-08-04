@@ -119,12 +119,19 @@ Tangerine
           <ul class="nav navbar-nav pull-right">
           {% if current_user %}
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown">User <b class="caret"></b></a>
+              <a class="dropdown-toggle" data-toggle="dropdown">
+                {% if not current_user.is_authenticated() %}
+                Login
+                {% else %}
+                Logout
+                {% endif %}
+              <b class="caret"></b></a>
               <ul class="dropdown-menu">
               {% if not current_user.is_authenticated() %}
                 <li><a href="{{ url_for('user.login') }}">Login</a></li>
                 <li><a href="{{ url_for('user.register') }}">Register</a></li>
               {% else %}
+                <li><p class="navbar-text">Logged in as: {{current_user.first_name}}</p></li>
                 <li><a href="{{ url_for('user.logout') }}">Logout</a></li>
               {% endif %}
               </ul>
