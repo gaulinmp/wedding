@@ -86,7 +86,7 @@ class User(UserMixin, SurrogatePK, Model):
         user = User(email=kwargs.pop('email', None),
                     first_name=kwargs.pop('first_name', None),
                     last_name=kwargs.pop('last_name', None),
-                    authenticated=False,
+                    authenticated=True,
                     **kwargs)
         user.save()
         return user
