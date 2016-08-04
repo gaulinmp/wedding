@@ -5,6 +5,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 
 from .forms import FeedbackForm
 from .models import Feedback
+from ..user.models import User
 from ...utilities import flash_errors
 from ...extensions import login_manager
 
@@ -19,7 +20,12 @@ blueprint = Blueprint('feedback', __name__, url_prefix='/feedback',
 @blueprint.route("/", methods=["GET", "POST"])
 def feedback():
     form = FeedbackForm(request.form)
-    msgs = Feedback.query.all()
+    msgs = (Feedback.query.join(User, Feedback.email==User.email)
+                    .add_columns(User.first_name, User.last_name,
+                                 *Feedback.__table__.columns)
+                    .filter(Feedback.message_type != 'private')
+                    .order_by(Feedback.created_at.desc())
+            )
     return render_template("feedback/feedback.html", messages=msgs, form=form)
 
 @blueprint.route('/submit', methods=['GET', 'POST'])

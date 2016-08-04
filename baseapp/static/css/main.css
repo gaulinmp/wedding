@@ -39,6 +39,10 @@ p {
   height: 100%;
 }
 
+.right-align {
+  text-align: right;
+}
+
 /*****************************************************************************
   888b    888                   888
   8888b   888                   888
@@ -138,6 +142,28 @@ img.inline-img {
   width: 100%;
 }
 
+#comment_submit {
+  border-width: medium;
+  border-radius: 1em;
+  border-color: #fff;
+  border-style: solid;
+  background-color: rgba(0,0,0,0.5);
+  padding: 1em;
+}
+
+.panel {
+  background-color: inherit;
+}
+.panel-body{
+  background-color: rgba(150,150,150,0.3);
+}
+
+.panel-footer {
+  background-color: rgba(200,200,200,0.4);
+  text-align: right;
+  font-size: .8em;
+  padding: .3em;
+}
 
 /*****************************************************************************
 8888888888                888

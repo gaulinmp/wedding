@@ -1,0 +1,12 @@
+{% extends 'layouts/index.html' %}
+{% set active_page = "feedback.feedback" %}
+{% block title %}Feedback{% endblock %}
+
+{% block pagecontent %}
+{% if not current_user.is_authenticated() %}
+Please log in or register.
+{% else %}
+{% block feedbackcontent %}
+{% endblock feedbackcontent %}
+{% endif %}
+{% endblock pagecontent %}
