@@ -28,6 +28,17 @@ def feedback():
             )
     return render_template("feedback/feedback.html", messages=msgs, form=form)
 
+@blueprint.route("/secretsecret", methods=["GET",])
+def secret():
+    form = FeedbackForm(request.form)
+    msgs = (Feedback.query.join(User, Feedback.email==User.email)
+                    .add_columns(User.first_name, User.last_name,
+                                 *Feedback.__table__.columns)
+                    .filter(Feedback.message_type != 'song')
+                    .order_by(Feedback.created_at.desc())
+            )
+    return render_template("feedback/feedback.html", messages=msgs, form=form)
+
 @blueprint.route('/submit', methods=['GET', 'POST'])
 def submit():
     form = FeedbackForm(request.form)

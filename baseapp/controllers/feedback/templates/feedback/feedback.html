@@ -48,6 +48,14 @@
     </div>
     <div class="panel-footer">By {{ message.first_name }} {{ message.last_name }}</div>
   </div>
+  {% elif message.message_type == 'private' %}
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <b class='text-danger'>PRIVATE:</b>
+      {{ message.message_string }}
+    </div>
+    <div class="panel-footer bg-danger">PRIVATE message from: {{ message.first_name }} {{ message.last_name }}</div>
+  </div>
   {% elif message.message_type == 'song' %}
   <div class="row text-center">
     {{ message.first_name }} requests
