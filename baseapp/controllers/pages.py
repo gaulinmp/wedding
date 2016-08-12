@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import os
+
 from flask import render_template, Blueprint
 
 blueprint = Blueprint('baseapp', __name__,
@@ -15,7 +17,9 @@ def home():
 
 @blueprint.route('/about')
 def about():
-    return render_template('pages/about.html')
+    names = sorted(os.listdir(os.path.join(blueprint.static_folder,
+                                            'img', 'carousel')))
+    return render_template('pages/about.html', imgs=names)
 
 @blueprint.route('/deets')
 def deets():

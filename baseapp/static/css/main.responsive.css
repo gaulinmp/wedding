@@ -8,33 +8,47 @@
 /*****************************************************************************
  * Extra small devices (phones, up to 767px)
  ****************************************************************************/
-@media (max-width: 767px) {
-
+@media (max-width: 480px) {
   .text {
     margin-top: .5em;
+  }
+  .carousel-inner>.item>img {
+    max-height: 300px;
   }
 }
 /* Extra small devices (phones, up to 767px) end */
 
 
 /*****************************************************************************
- * Small devices (tablets, 768px and up)
+ * Small devices (tablets, up to 768px)
  ****************************************************************************/
-@media (min-width: 768px) {}
-/* Small devices (tablets, 768px and up) end */
+@media (max-width: 768px) {
+  .carousel-inner>.item>img {
+    max-height: 450px;
+  }
+}
+/* Small devices (tablets, up to 768px) end */
 
 
 /*****************************************************************************
- * Medium devices (desktops, 992px and up)
+ * Medium devices (Portrait tablet to landscape and desktop)
  ****************************************************************************/
-@media (max-width: 992px) {}
-/* Medium devices (desktops, 992px and up) end */
+@media (min-width: 768px) and (max-width: 979px) {
+  .carousel-inner>.item>img {
+    max-height: 650px;
+  }
+}
+/* Medium devices (Portrait tablet to landscape and desktop) */
 
 
 /*****************************************************************************
  * Large devices (large desktops, 1200px and up)
  ****************************************************************************/
-@media (max-width: 1200px) {}
+@media (min-width: 1200px) {
+  .carousel-inner>.item>img {
+    max-height: 650px;
+  }
+}
 /* Large devices (large desktops, 1200px and up) end */
 
 

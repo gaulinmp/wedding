@@ -165,6 +165,12 @@ img.inline-img {
   padding: .3em;
 }
 
+.carousel-inner>.item>img {
+  margin: 0 auto;
+  /* Responsive CSS overrides this. */
+  max-height: 650px;
+}
+
 /*****************************************************************************
 8888888888                888
 888                       888
