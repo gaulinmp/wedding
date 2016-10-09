@@ -171,6 +171,15 @@ img.inline-img {
   max-height: 650px;
 }
 
+section.hotel-deets {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.hotel-deets p{
+  margin-left: 1em;
+}
+
 /*****************************************************************************
 8888888888                888
 888                       888

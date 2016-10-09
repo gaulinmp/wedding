@@ -15,6 +15,10 @@
   .carousel-inner>.item>img {
     max-height: 300px;
   }
+  section.hotel-deets {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 /* Extra small devices (phones, up to 767px) end */
 
@@ -26,6 +30,10 @@
   .carousel-inner>.item>img {
     max-height: 450px;
   }
+  section.hotel-deets {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 /* Small devices (tablets, up to 768px) end */
 
@@ -36,6 +44,10 @@
 @media (min-width: 768px) and (max-width: 979px) {
   .carousel-inner>.item>img {
     max-height: 650px;
+  }
+  section.hotel-deets {
+    width: 75%;
+    margin: 0 auto;
   }
 }
 /* Medium devices (Portrait tablet to landscape and desktop) */
