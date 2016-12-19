@@ -1,0 +1,12 @@
+{% extends 'layouts/index.html' %}
+{% set active_page = "rsvp.rsvp" %}
+{% block title %}RSVP{% endblock %}
+
+{% block pagecontent %}
+{% if not current_user.is_authenticated() %}
+Please log in or register.
+{% else %}
+{% block rsvpcontent %}
+{% endblock rsvpcontent %}
+{% endif %}
+{% endblock pagecontent %}

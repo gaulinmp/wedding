@@ -1,0 +1,66 @@
+{% extends 'rsvp/rsvp_skeleton.html' %}
+
+{% block rsvpcontent %}
+
+<div class="row">
+    <div class="container col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" id='rsvp_submit'>
+      <form method="post" class="form" action='submit'>
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+          <label for="rsvp_name" class="control-label">What is your name?</label>
+            {{ form.rsvp_name(class_ = 'form-control first-input',
+                                   id='rsvp_name',
+                                   placeholder = form.rsvp_name.label.text,
+                                   required = false,
+                                   autofocus = true) }} </div>
+
+        <div class="form-group">
+          <label for="rsvp_email" class="control-label">What is your email? (optional)</label>
+            {{ form.rsvp_email(class_ = 'form-control first-input',
+                                   id='rsvp_email',
+                                   placeholder = form.rsvp_email.label.text,
+                                   required = false,
+                                   autofocus = true) }} </div>
+
+        <div class="form-group">
+          <label for="rsvp_answer" class="control-label">Will you be coming?</label>
+            {{ form.rsvp_answer(class_ = 'form-control input',
+                                   id='rsvp_answer',
+                                   placeholder = form.rsvp_answer.label.text,
+                                   required = false,
+                                   autofocus = true) }} </div>
+
+        <div class="form-group">
+          <label for="rsvp_number" class="control-label">How many will come? (total)</label>
+            {{ form.rsvp_number(class_ = 'form-control input',
+                                   id='rsvp_number',
+                                   placeholder = form.rsvp_number.label.text,
+                                   required = false,
+                                   autofocus = true) }} </div>
+
+        <div class="form-group">
+          <label for="rsvp_text" class="control-label">Message (e.g. song request, names of +1s, etc.)</label>
+            {{ form.rsvp_text(class_ = 'form-control last-input',
+                                   id='rsvp_text',
+                                   placeholder = form.rsvp_text.label.text,
+                                   required = false,
+                                   autofocus = true) }} </div>
+
+        <!-- <div class="form-group">
+          <div class="g-recaptcha" data-sitekey="{{ config.GOOGLE_RECAPTCHA }}"></div>
+        </div> -->
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </form>
+    </div>
+    {% include "snippets/hr.html" %}
+</div>
+
+
+
+{% include "snippets/hr.html" %}
+
+{% endblock rsvpcontent %}
