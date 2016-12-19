@@ -41,11 +41,13 @@ def login():
 
 
 @blueprint.route('/logout')
-@login_required
 def logout():
-    current_user.authenticate(is_authentic=False)
-    logout_user()
-    flash('You are logged out.', 'info')
+    try:
+        current_user.authenticate(is_authentic=False)
+        logout_user()
+        flash('You are logged out.', 'info')
+    except AttributeError:
+        flash('You were not loged in.', 'info')
     return redirect(url_for('baseapp.home'))
 
 
