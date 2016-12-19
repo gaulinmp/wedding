@@ -41,8 +41,9 @@ def submit():
                     rsvp_answer=form.rsvp_answer.data,
                     rsvp_number=form.rsvp_number.data,
                     rsvp_text=form.rsvp_text.data)
-        flash('Thanks for RSVPing!', 'success')
-        return redirect(url_for('rsvp.rsvp'))
+        flash('Thanks for RSVPing! We look forward to seeing you in April!',
+              'success')
+        return redirect(url_for('baseapp.home'))
     else:
         flash_errors(form)
     return render_template('rsvp/rsvp.html', form=form)
