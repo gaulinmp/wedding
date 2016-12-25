@@ -40,19 +40,20 @@
                                  autofocus = true) }} </div>
 
       <div class="form-group">
-        <label for="rsvp_text" class="control-label">Message (e.g. song request, names of +1s, etc.)</label>
+        <label for="rsvp_text" class="control-label">Message</label>
+        (e.g. song request, names of +1s, etc.)
           {{ form.rsvp_text(class_ = 'form-control last-input',
                                  id='rsvp_text',
                                  placeholder = form.rsvp_text.label.text,
                                  required = false,
                                  autofocus = true) }} </div>
 
-      <!-- <div class="form-group">
+      <div class="form-group">
         <div class="g-recaptcha" data-sitekey="{{ config.GOOGLE_RECAPTCHA }}"></div>
-      </div> -->
+      </div>
 
       <div class="form-group">
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-danger">Submit</button>
       </div>
     </form>
   </div>
