@@ -2,7 +2,6 @@
 from datetime import timedelta
 
 from flask import request, url_for, redirect, session, current_app
-from flask_login import current_user
 
 from flask_wtf import Form
 from wtforms import TextField, SelectField, HiddenField
@@ -28,8 +27,7 @@ class RedirectForm(Form):
         return redirect(target or url_for(endpoint, **values))
 
 class FeedbackForm(RedirectForm):
-    email = HiddenField()
-
+    name = TextField('Name', validators=[DataRequired(),])
     message_type = SelectField('Message Type',choices=[
         ('private', 'Private Message to the Couple'),
         ('public', 'Public Message'),
@@ -37,24 +35,24 @@ class FeedbackForm(RedirectForm):
         ])
     message_string = TextField(
         'Message', validators=[DataRequired(),], widget=TextArea()
-    )
+        )
 
     def __init__(self, *args, **kwargs):
         super(FeedbackForm, self).__init__(*args, **kwargs)
         self.user = None
 
-    def validate(self):
-        initial_validation = super(FeedbackForm, self).validate()
-        if not initial_validation:
-            return False
-        try:
-            if not current_user.email:
-                self.email.errors.append("No valid user found. Please log in.")
-                return False
-        except AttributeError:
-            self.email.errors.append("No valid user found. Please log in.")
-            return False
-        if not current_user.is_authenticated:
-            self.email.errors.append("No valid user found. Please log in.")
-            return False
-        return True
+    # def validate(self):
+    #     initial_validation = super(FeedbackForm, self).validate()
+    #     if not initial_validation:
+    #         return False
+    #     try:
+    #         if not current_user.email:
+    #             self.email.errors.append("No valid user found. Please log in.")
+    #             return False
+    #     except AttributeError:
+    #         self.email.errors.append("No valid user found. Please log in.")
+    #         return False
+    #     if not current_user.is_authenticated:
+    #         self.email.errors.append("No valid user found. Please log in.")
+    #         return False
+    #     return True

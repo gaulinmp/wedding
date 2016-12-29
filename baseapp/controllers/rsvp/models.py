@@ -52,7 +52,7 @@ class RSVP(SurrogatePK, Model):
         """Factory method wrapping RSVP(**kwargs)."""
         if ('rsvp_answer' not in kwargs or
             'rsvp_number' not in kwargs):
-            print("Username: {}\tName: {}\tAnswer:"
+            print("Email: {}\tName: {}\tAnswer: {}"
                   .format(kwargs.get('rsvp_email', None),
                           kwargs.get('rsvp_name', None),
                           kwargs.get('rsvp_answer', None)))

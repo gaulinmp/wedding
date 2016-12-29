@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 from flask import (Blueprint, render_template, request, flash,
                    session, redirect, url_for)
-from flask_login import login_user, login_required, logout_user, current_user
+# from flask_login import login_user, login_required, logout_user, current_user
 
 from .forms import FeedbackForm
 from .models import Feedback
-from ..user.models import User
+# from ..user.models import User
 from ...utilities import flash_errors
 from ...extensions import login_manager
 
@@ -20,9 +20,7 @@ blueprint = Blueprint('feedback', __name__, url_prefix='/feedback',
 @blueprint.route("/", methods=["GET", "POST"])
 def feedback():
     form = FeedbackForm(request.form)
-    msgs = (Feedback.query.join(User, Feedback.email==User.email)
-                    .add_columns(User.first_name, User.last_name,
-                                 *Feedback.__table__.columns)
+    msgs = (Feedback.query
                     .filter(Feedback.message_type != 'private')
                     .order_by(Feedback.created_at.desc())
             )
@@ -31,10 +29,7 @@ def feedback():
 @blueprint.route("/secretsecret", methods=["GET",])
 def secret():
     form = FeedbackForm(request.form)
-    msgs = (Feedback.query.join(User, Feedback.email==User.email)
-                    .add_columns(User.first_name, User.last_name,
-                                 *Feedback.__table__.columns)
-                    .filter(Feedback.message_type != 'song')
+    msgs = (Feedback.filter(Feedback.message_type != 'song')
                     .order_by(Feedback.created_at.desc())
             )
     return render_template("feedback/feedback.html", messages=msgs, form=form)
@@ -43,7 +38,7 @@ def secret():
 def submit():
     form = FeedbackForm(request.form)
     if form.validate_on_submit():
-        Feedback.create(email=current_user.email,
+        Feedback.create(name=form.name.data,
                         message_type=form.message_type.data,
                         message_string=form.message_string.data)
         flash('Thanks for Posting!', 'success')

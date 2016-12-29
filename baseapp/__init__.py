@@ -5,7 +5,7 @@ import logging
 from flask import Flask, request, render_template
 from flask_wtf.csrf import CsrfProtect
 
-from .controllers import pages, user, feedback, rsvp
+from .controllers import pages, feedback, rsvp  #, user
 from .extensions import all_extensions, db
 
 
@@ -35,9 +35,12 @@ def create_app(config_filename):
     # Register blueprints
     app.register_blueprint(pages.blueprint)
     pages.blueprint.extra_init(app)
-    app.register_blueprint(user.views.blueprint)
+
+    # app.register_blueprint(user.views.blueprint)
+
     app.register_blueprint(feedback.views.blueprint)
     feedback.views.blueprint.extra_init(app)
+    
     app.register_blueprint(rsvp.views.blueprint)
     rsvp.views.blueprint.extra_init(app)
 
