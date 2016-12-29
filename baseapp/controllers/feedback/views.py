@@ -29,7 +29,8 @@ def feedback():
 @blueprint.route("/secretsecret", methods=["GET",])
 def secret():
     form = FeedbackForm(request.form)
-    msgs = (Feedback.filter(Feedback.message_type != 'song')
+    msgs = (Feedback.query
+                    .filter(Feedback.message_type != 'song')
                     .order_by(Feedback.created_at.desc())
             )
     return render_template("feedback/feedback.html", messages=msgs, form=form)
