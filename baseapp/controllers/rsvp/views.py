@@ -5,7 +5,7 @@ from flask import (Blueprint, render_template, request, flash,
 from .forms import RSVPForm
 from .models import RSVP
 from ...utilities import flash_errors
-from ...extensions import login_manager
+# from ...extensions import login_manager
 
 blueprint = Blueprint('rsvp', __name__, url_prefix='/rsvp',
                       static_folder='../static',

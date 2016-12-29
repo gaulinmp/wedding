@@ -7,7 +7,7 @@ from .forms import FeedbackForm
 from .models import Feedback
 # from ..user.models import User
 from ...utilities import flash_errors
-from ...extensions import login_manager
+# from ...extensions import login_manager
 
 blueprint = Blueprint('feedback', __name__, url_prefix='/feedback',
                       static_folder='../static',

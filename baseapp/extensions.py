@@ -8,8 +8,8 @@ create_app iterates through all_extensions array and calls init_app on each.
 # from flask_bcrypt import Bcrypt
 # bcrypt = Bcrypt()
 
-from flask_login import LoginManager
-login_manager = LoginManager()
+# from flask_login import LoginManager
+# login_manager = LoginManager()
 
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
@@ -23,4 +23,4 @@ db = SQLAlchemy()
 # from flask_debugtoolbar import DebugToolbarExtension
 # debug_toolbar = DebugToolbarExtension()
 
-all_extensions = [login_manager, db]
+all_extensions = [db, ]# login_manager
