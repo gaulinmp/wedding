@@ -42,7 +42,6 @@ class RSVPForm(RedirectForm):
 
     def __init__(self, *args, **kwargs):
         super(RSVPForm, self).__init__(*args, **kwargs)
-        self.user = None
 
     def validate(self):
         initial_validation = super(RSVPForm, self).validate()
