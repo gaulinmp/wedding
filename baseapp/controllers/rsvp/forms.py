@@ -6,7 +6,8 @@ from flask import request, url_for, redirect, session, current_app
 from flask_wtf import Form
 from wtforms import TextField, SelectField, HiddenField, IntegerField
 from wtforms.widgets import TextArea
-from wtforms.validators import DataRequired, Email, EqualTo, Length
+from wtforms import validators
+# from wtforms.validators import DataRequired, Email, EqualTo, Length
 from wtforms.csrf.session import SessionCSRF
 
 from .models import RSVP
@@ -27,16 +28,17 @@ class RedirectForm(Form):
         return redirect(target or url_for(endpoint, **values))
 
 class RSVPForm(RedirectForm):
-    rsvp_name = TextField('Name', validators=[DataRequired(),])
+    rsvp_name = TextField('Name', validators=[validators.DataRequired(),])
     rsvp_email = TextField('Email (optional)')
 
     rsvp_answer = SelectField('RSVP Answer',choices=[
         ('yes', 'I will be coming :)'),
         ('no', 'I won\'t be coming :('),
-        ], validators=[DataRequired(),])
+        ], validators=[validators.DataRequired(),])
 
     rsvp_number = IntegerField('Total Number Attending',
-                               validators=[DataRequired(),])
+        validators=[validators.optional()]
+        )
 
     rsvp_text = TextField('Message', widget=TextArea())
 

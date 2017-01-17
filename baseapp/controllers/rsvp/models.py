@@ -24,7 +24,7 @@ class RSVP(SurrogatePK, Model):
     rsvp_name = Column(db.String(80), unique=False, nullable=False)
     rsvp_email = Column(db.String(80), unique=False, nullable=True)
     rsvp_answer = Column(db.String(16), unique=False, nullable=False)
-    rsvp_number = Column(db.Integer(), unique=False, nullable=True)
+    rsvp_number = Column(db.Integer(), unique=False, nullable=True, default=0)
     rsvp_text = Column(db.Text(length=1024**2), nullable=True)
 
     def __repr__(self):

@@ -20,13 +20,11 @@ def rsvp():
     form = RSVPForm(request.form)
     return render_template("rsvp/rsvp.html", form=form)
 
-# @blueprint.route("/secretsecret", methods=["GET",])
-# def secret():
-#     form = RSVPForm(request.form)
-#     rsps = (RSVP.query.add_columns(*RSVP.__table__.columns)
-#                       .order_by(RSVP.created_at.desc())
-#             )
-#     return render_template("rsvp/rsvp.html", rsvps=rsps, form=form)
+@blueprint.route("/secretsecret", methods=["GET",])
+def secret():
+    form = RSVPForm(request.form)
+    rsps = (RSVP.query.order_by(RSVP.created_at.desc()))
+    return render_template("rsvp/rsvp.html", rsvps=rsps, form=form, guestlist=True)
 
 @blueprint.route('/submit', methods=['GET', 'POST'])
 def submit():
@@ -37,8 +35,12 @@ def submit():
                     rsvp_answer=form.rsvp_answer.data,
                     rsvp_number=form.rsvp_number.data,
                     rsvp_text=form.rsvp_text.data)
-        flash('Thanks for RSVPing! We look forward to seeing you in April!',
-              'success')
+        if form.rsvp_answer.data == "yes":
+            flash('Thanks for RSVPing! We look forward to seeing you in April!',
+                  'success')
+        else:
+            flash('Thanks for RSVPing! We\'re sorry you can\'t make it. You will be missed!',
+                  'success')
         return redirect(url_for('baseapp.home'))
     else:
         flash_errors(form)
