@@ -63,6 +63,7 @@
 {% if guestlist %}
 <div class="row">
   <div class="container col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3" id='guestlist'>
+    <p>In total, {{ tot_num }} people have RSVPed yes!</p>
     <table>
       <tr>
         <th>Name</th><th>Answer</th><th>Note</th>
@@ -70,7 +71,7 @@
       {% for response in rsvps %}
       <tr>
         <td><a href="mailto:{{ response.rsvp_email}}">{{ response.rsvp_name}}</a></td>
-        <td>{% if response.rsvp_answer == "yes" %}{{ response.rsvp_number}}{% else %}:({% endif %}</td>
+        <td>{% if response.rsvp_answer == "yes" %}{{ response.rsvp_number }}{% else %}:({% endif %}</td>
         <td>{{ response.rsvp_text}}</td>
       </tr>
       {% endfor %}

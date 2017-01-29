@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from sqlalchemy.sql import func
+
 from flask import (Blueprint, render_template, request, flash,
                    session, redirect, url_for)
 
@@ -24,7 +26,12 @@ def rsvp():
 def secret():
     form = RSVPForm(request.form)
     rsps = (RSVP.query.order_by(RSVP.created_at.desc()))
-    return render_template("rsvp/rsvp.html", rsvps=rsps, form=form, guestlist=True)
+    tot_num = (RSVP.query
+                   .filter_by(rsvp_answer="yes")
+                   .with_entities(func.sum(RSVP.rsvp_number).label('tot'))
+                   .first())[0]
+    return render_template("rsvp/rsvp.html", rsvps=rsps, form=form,
+                           guestlist=True, tot_num=tot_num)
 
 @blueprint.route('/submit', methods=['GET', 'POST'])
 def submit():
